@@ -57,12 +57,10 @@ exports.loginUser = asyncHandler(async (req, res) => {
   // Check if user & passwords patch
   if (user && (await bcrypt.compare(password, user.password))) {
     res.status(200).json({
-      data: {
-        _id: user._id,
-        name: user.name,
-        email: user.email,
-        token: generateToken(user._id),
-      },
+      _id: user._id,
+      name: user.name,
+      email: user.email,
+      token: generateToken(user._id),
     });
   } else {
     res.status(400);

@@ -15,9 +15,11 @@ app.use(express.urlencoded({ extended: false }));
 
 // Routes files
 const users = require('./routes/userRoutes');
+const tickets = require('./routes/ticketRoutes');
 
 // Mounting routes
 app.use('/api/v1/users', users);
+app.use('/api/v1/tickets', tickets);
 
 // Error handler middleware
 app.use(errorHandler);
